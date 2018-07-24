@@ -1,0 +1,69 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-4">
+				<%= image_tag @movie.image.url(:medium), class:"show-image" %>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td><strong>Average Rating:</strong> </td>
+								<td><div class="star-rating" data-score= 3.5</div></td>
+								<td><em><%= "#{@reviews.length} reviews"%></em></td>
+							</tr>
+							<tr>
+								<td> <strong>Name:</strong> </td>
+								<td> <%= @movie.name %> </td>
+							</tr>
+							<tr>
+								<td> <strong>Year Of Release: </strong> </td>
+								<td> <%= @movie.year %> </td>
+							</tr>
+							<tr>
+								<td> <strong> Rating: </strong> </td>
+								<td> <%= @movie.rating %> </td>
+							</tr>
+						</tbody>
+					</table>
+					<%= link_to "Leave a review Here", new_movie_review_path(@movie), class: "btn btn-success" %>
+				</div>
+			</div>
+			<div class="col-md-7 col-md-offset-1">
+				<h1 class="review_title"><%= @movie.name %></h1>
+				<p><%= @movie.year %></p>
+
+				<% if @reviews.blank?%>
+					<h3>No reviews just yet, would you like to add first!</h3>
+					<%= link_to "Write Review", new_movie_review_path(@movie), class: "btn btn-danger" %>
+				<% else %>
+					<% @reviews.each do |review| %>
+						<div class="reviews">
+						 	<div class="star-rating" data-score= <%= review.rating %> ></div>	 
+							<p> <%= review.comment %> </p>
+							<hr>
+						</div>
+						<%end%>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<% if user_signed_in? %>
+	<% if @movie.user_id == current_user.id%>
+		<%= link_to 'Edit', edit_movie_path(@movie) %> 
+| <% end %>
+<%end%>
+<%= link_to 'Back', movies_path %>
+
+
+<script>
+	$('.star-rating').raty({
+		path: '/assets',
+		readOnly: true,
+		score: function(){
+			return $(this).attr('data-score')
+		}
+	});
+</script>
+
