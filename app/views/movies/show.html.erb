@@ -9,7 +9,7 @@
 						<tbody>
 							<tr>
 								<td><strong>Average Rating:</strong> </td>
-								<td><div class="star-rating" data-score= 3.5</div></td>
+								<td><div class="star-rating" data-score= <%= @avg_review%></div></td>
 								<td><em><%= "#{@reviews.length} reviews"%></em></td>
 							</tr>
 							<tr>
@@ -23,7 +23,7 @@
 							
 						</tbody>
 					</table>
-					<%= link_to "Leave a review Here", new_movie_review_path(@movie), class: "btn btn-success" %>
+					
 				</div>
 			</div>
 			<div class="col-md-7 col-md-offset-1">
@@ -42,6 +42,7 @@
 						</div>
 						<%end%>
 				<% end %>
+				<%= link_to "Leave a review Here", new_movie_review_path(@movie), class: "btn btn-success" %>
 			</div>
 		</div>
 	</div>
