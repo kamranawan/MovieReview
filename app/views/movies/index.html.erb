@@ -2,14 +2,14 @@
 <% if !user_signed_in? %>
   <div class="jumbotron">
     <h2 style = "font-size: 40px;">Welcome to Movie Review</h2>
-    <p style= "color: #ffff; font-size:18px;">Did you really love or hate that blockbuster movie and you want people to know what you thought? Now you can rant or rave on websites and apps like Rotten Tomatoes and Family Movie Reviews. You can also discover new movies, read current movie reviews, or find movie ratings for kids..</p>
-    <%= link_to "Sign Up for Review", new_user_registration_path, class: "btn btn-success btn-lg"%>
+    <p style= "color: #6d6868; font-size:18px;">Did you really love or hate that blockbuster movie and you want people to know what you thought? Now you can rant or rave on websites and apps like Rotten Tomatoes and Family Movie Reviews. You can also discover new movies, read current movie reviews, or find movie ratings for kids..</p>
+    <%= link_to "Sign Up for Review", new_user_registration_path, class: "btn btn-primary btn-lg"%>
   </div>
 <% end %>
 <div class="row"> 
     <div style="margin-right: 18px;">
       <%= search_form_for (@q) do |f|  %>
-          <%= f.search_field :name_cont, placeholder:"Search..", class: "pull-right" %>  
+          <%= f.search_field :name_cont, placeholder:"Search Movie...", id: "sbar", class: "pull-right" %>  
       <% end %>
      </div>
     </div>

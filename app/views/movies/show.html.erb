@@ -2,8 +2,8 @@
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-4">
-				<%= image_tag @movie.image.url(:medium), class:"show-image" %>
 
+				<%= image_tag @movie.image.url(:medium), class:"show-image" %>
 				<div class="table-responsive">
 					<table class="table">
 						<tbody>
@@ -20,10 +20,7 @@
 								<td> <strong>Year Of Release: </strong> </td>
 								<td> <%= @movie.year %> </td>
 							</tr>
-							<tr>
-								<td> <strong> Rating: </strong> </td>
-								<td> <%= @movie.rating %> </td>
-							</tr>
+							
 						</tbody>
 					</table>
 					<%= link_to "Leave a review Here", new_movie_review_path(@movie), class: "btn btn-success" %>

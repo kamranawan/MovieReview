@@ -1,31 +1,32 @@
-<%= form_with(model: [@movie, review], local: true) do |form| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<div class="container">
+   <%= form_with(model: [@movie, review], local: true) do |form| %>
+    <% if review.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-      <ul>
-      <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+       <%= form.label :Rate %> <br>
+     <div id="star-rating"></div>
+    </div>
+    <br>
+    <div class="field">
+      <%= form.label :comment %> <br>
+      <%= form.text_area :comment, id: :review_comment %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-     <%= form.label :Rate %> <br>
-   <div id="star-rating"></div>
-  </div>
-  <br>
-  <div class="field">
-    <%= form.label :comment %> <br>
-    <%= form.text_area :comment, id: :review_comment %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
+</div>
 
 <script>
   $('#star-rating').raty({

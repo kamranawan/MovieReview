@@ -7,7 +7,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<%= link_to "Movies Review", root_path, class: "navbar-brand"%>
+			<%= link_to "Movies", root_path, class: "navbar-brand"%>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -16,11 +16,14 @@
 					<li><%= link_to "Account", edit_user_registration_path, class: "pull-right" %></li>
 					<li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete,  class: "pull-right" %></li>
 				<% else %>
-					<li><%= link_to "Sign Up", new_user_registration_path, class: "active"%></li>
-					<li><%= link_to "sign In", new_user_session_path, class: "active"%></li>
+					<li><%= link_to "Sign Up", new_user_registration_path,  class: "active"%></li>
+					<li> <%= link_to "sign In", new_user_session_path, class: "active"%></li>
+					
 				<% end %>
 			</ul>
 			
 		</div>
 	</div>
 </nav>
+
+
