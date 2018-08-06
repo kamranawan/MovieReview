@@ -20,6 +20,10 @@
 								<td> <strong>Year Of Release: </strong> </td>
 								<td> <%= @movie.year %> </td>
 							</tr>
+							<tr>
+								<td> <strong>Rating By Us: </strong> </td>
+								<td> <div class="star-rating" data-score= <%= @movie.rating %> </div>  </td>
+							</tr>
 							
 						</tbody>
 					</table>

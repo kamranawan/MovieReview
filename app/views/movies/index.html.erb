@@ -20,7 +20,10 @@
     <div class="col-sm-6 col-md-3">
       <%= link_to movie do %>
       <div class="thumbnail">
-        <%= movie.name%>
+        <center> <h3> <b><%= movie.name%> </b> </h3> </center>  
+        <center><h5> Year Of Release: <%= movie.year%> </h5> </center> 
+        <br>
+        
         <%#= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
       <%end%>
       </div>

@@ -22,13 +22,17 @@
 
         <div class="field">
           <%= form.label :year %>
-          <%= form.number_field :year, id: :movie_year,class: "form-control" %>
+          <%#= form.number_field :year, in: 1...10 , class: "form-control"%>
+          <%= form.number_field :year, id: :movie_year, value: "2018", class: "form-control" %>
         </div>
-
+        <div class="field">
+          <%= form.label :Rating %>
+          <%= form.number_field :rating, in: 1...6, value: "1" ,class: "form-control" %>
+        </div>
         
       <br>
         <div class="form-action">
           <%= form.submit class: "btn btn-success"  %>
         </div>
       <% end %>
-    
+    <!-- number_field_tag 'quantity', nil, in: 1...10 -->
