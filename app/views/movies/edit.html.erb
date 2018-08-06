@@ -2,7 +2,44 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
 		<h1>Editing Movie</h1>
-		<%= render 'form', movie: @movie %>
+		
+      <%= form_with(model: @movie, local: true) do |form| %>
+        <% if @movie.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+            <ul>
+            <% movie.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%#= form.label :Image %>
+          <%#= form.file_field :image %>
+        </div>
+        <div class="field">
+          <%= form.label :name %>
+          <%= form.text_field :name, id: :movie_name , class: "form-control"%>
+        </div>
+
+        <div class="field">
+          <%= form.label :year %>
+          <%#= form.number_field :year, in: 1...10 , class: "form-control"%>
+          <%= form.number_field :year, id: :movie_year, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :Rating %>
+          <%= form.number_field :rating, in: 1...6, class: "form-control" %>
+        </div>
+        
+      <br>
+        <div class="form-action">
+          <%= form.submit class: "btn btn-success"  %>
+        </div>
+      <% end %>
+    <!-- number_field_tag 'quantity', nil, in: 1...10 -->
 		<br><br>
 		<%= link_to 'Show', @movie %> |
 		<%= link_to 'Back', movies_path %>
